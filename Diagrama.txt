@@ -1,0 +1,126 @@
++----------------------+
+|         Main         |
++----------------------+
+| - scanner: Scanner   |
+| - eventManager:      |
+|   EventManager       |
+| - currentUser: User  |
++----------------------+
+| + main(args): void   |
+| - showWelcome(): void|
+| - registerUser():void|
+| - showMenu(): void   |
+| - createEvent(): void|
+| - listAllEvents():   |
+|   void               |
+| - participateInEvent()|
+|   : void             |
+| - listUserConfirmedEvents()|
+|   : void             |
+| - cancelParticipation():void|
+| - listEventsByStatus():void |
+| - printEvents(...):void     |
+| - showUserData():void       |
+| - chooseCategory():EventCategory |
+| - readDateTime(...):LocalDateTime|
+| - readNonEmpty(...):String       |
+| - readInt(...): int              |
+| - isValidIndex(...): boolean     |
++----------------------+
+
+            |
+            | usa
+            v
+
++-----------------------------+
+|        EventManager         |
++-----------------------------+
+| - events: List<Event>       |
+| - storageFileName: String   |
++-----------------------------+
+| + EventManager(... )        |
+| + getStorageFileName():String |
+| + addEvent(event): void     |
+| + getAllEventsSorted():     |
+|   List<Event>               |
+| + getEventsByParticipant(   |
+|   email): List<Event>       |
+| + getUpcomingEvents():      |
+|   List<Event>               |
+| + getOngoingEvents():       |
+|   List<Event>               |
+| + getPastEvents():          |
+|   List<Event>               |
+| + saveEvents(): void        |
+| + loadEvents(): void        |
++-----------------------------+
+
+            |
+            | gerencia vários
+            v
+
++----------------------------------+
+|              Event               |
++----------------------------------+
+| - counter: int {static}          |
+| - id: int                        |
+| - name: String                   |
+| - address: String                |
+| - category: EventCategory        |
+| - dateTime: LocalDateTime        |
+| - description: String            |
+| - participants: Set<String>      |
++----------------------------------+
+| + Event(...)                     |
+| + Event(..., participants)       |
+| + getId(): int                   |
+| + getDateTime(): LocalDateTime   |
+| + addParticipant(email): void    |
+| + removeParticipant(email): void |
+| + hasParticipant(email): boolean |
+| + isOngoing(): boolean           |
+| + isPast(): boolean              |
+| + isUpcoming(): boolean          |
+| + getStatus(): String            |
+| + toFileString(): String         |
+| + fromFileString(line): Event    |
+| + toDisplayString(): String      |
+| - escape(value): String          |
+| - unescape(value): String        |
+| - splitPreservingEscapes(...):   |
+|   String[]                       |
++----------------------------------+
+
+            |
+            | usa
+            v
+
++------------------------------+
+|         EventCategory        |
++------------------------------+
+| FESTA                        |
+| ESPORTIVO                    |
+| SHOW                         |
+| PALESTRA                     |
+| FEIRA                        |
+| CULTURAL                     |
+| OUTRO                        |
++------------------------------+
+| - displayName: String        |
++------------------------------+
+| + getDisplayName(): String   |
++------------------------------+
+
++----------------------+
+|         User         |
++----------------------+
+| - name: String       |
+| - email: String      |
+| - city: String       |
+| - phone: String      |
+| - age: int           |
++----------------------+
+| + User(...)          |
+| + getEmail(): String |
+| + toString(): String |
++----------------------+
